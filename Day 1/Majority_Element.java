@@ -7,36 +7,28 @@ public class Solution {
     // DO NOT MODIFY THE LIST. IT IS READ ONLY
     public int majorityElement(final List<Integer> A) {
 
-        int count1=0, count2=0;
-        int ele1=-1, ele2=-1;
+        int n = A.size();
 
-        for(int i=0;i<A.size();i++)
+        int ele = -1;
+
+        int cnt=0;
+
+        for(int i=0;i<n;i++)
         {
-            if(count1==0){
-                ele1 =A.get(i);
-                count1=1;
-            }
-            else if(count2==0){
-                ele2=A.get(i);
-                count2=1;
-            }
-            else if(count1==ele1)
+            if(cnt==0)
             {
-                count1++;
-            }else if(count2==ele2)
+                ele = A.get(i);
+                cnt = 1;
+
+            }else if(ele == A.get(i))
             {
-                count2++;
-            }
-            else{
-                count1--;
-                count2--;
+                cnt++;
+            }else{
+                cnt--;
             }
         }
 
-        if(count1>count2)
-            return ele1;
-        else
-            return ele2;
+        return ele;
 
 
     }
